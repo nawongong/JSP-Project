@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSP</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <script src="js/jquery-1.10.2.js"></script>
+</head>
+<body>
+    <button id="up_click">↑</button>
+    <!-- 헤더 -->
+    <header>
+        <div id="img_num">
+            <div id="img_num_con">
+                <button id="prev_btn" onclick="slide(0)">&lt</button>
+                <button id="next_btn" onclick="slide(1)">&gt</button>
+                <div id="num_count">
+                    <span id="change_num">1</span>
+                    <span>/</span>
+                    <span id="all_num">3</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- 메뉴 -->
+    <div id="all_con">
+        <div id="wrap">
+            <nav>
+                <div id="gnb_left">
+                    <h1 class="logo"><a href="index.html">NSP</a></h1>
+                    <ul id="menu">
+                        <li><a href="#">ABOUT
+                            <ul id="sub_menu">
+                                <li><a href="#">ABOUT US</a></li>
+                                <li><a href="#">NEWS</a></li>
+                            </ul>
+                        </a></li>
+                        <li><a href="#">CATEGORY
+                            <ul id="sub_menu">
+                                <li><a href="#">ALL</a></li>
+                                <li><a href="#">OUTER</a></li>
+                                <li><a href="#">TOP</a></li>
+                                <li><a href="#">BOTTOM</a></li>
+                                <li><a href="#">ACC</a></li>
+                                <li><a href="#">SUIT</a></li>
+                            </ul>
+                        </a></li>
+                        <li><a href="#">EVENT
+                            <ul id="sub_menu">
+                                <li><a href="#">PROMOTION</a></li>
+                            </ul>
+                        </a></li>
+                        <li><a href="#">STORE
+                            <ul id="sub_menu">
+                                <li><a href="#">매장찾기</a></li>
+                                <li><a href="#">매장개설안내</a></li>
+                            </ul>
+                        </a></li>
+                    </ul>
+                </div>
+                <div id="gnb_right">
+                    <ul class="util">
+                        <li><a href="#">LOGIN</a></li>
+                        <li><a href="#">JOIN</a></li>
+                        <li><a href="#"><img id="search_img" src="/img/search_white.png"></a></li>
+                        <li><a href="#"><img id="basket_img" src="/img/basket_white.png" alt="장바구니" title="장바구니"></a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- best 영역 -->
+    <section id="best_section">
+        <div id="wrap">
+            <section class="best_con">
+                <div id="best">
+                    <h1 id="best_title">BEST</h1>
+                </div>
+            </section>
+        </div>
+    </section>
+    <!-- new 영역-->
+    <section id="new_section">
+        <div id="wrap">
+            <section class="new_con">
+                <div id="new">
+                    <h1 id="new_title">NEW</h1>
+                </div>
+            </section>
+        </div>
+    </section>
+    <!-- footer -->
+    <footer>
+        <div id="wrap">
+            <div id="footer_top">
+                <ul>
+                    <li><a href="#">매장개설안내</a></li>
+                    <li><a href="#">공지사항</a></li>
+                    <li><a href="#">고객문의</a></li>
+                </ul>
+            </div>
+            <div id="footer_bottom">
+                <div class="footer_bottom_top">
+                    <ul>
+                        <li><a href="#">이용약관</a></li>
+                        <li><a href="#">개인정보처리방침</a></li>
+                        <li><a href="#">위치기반서비스 이용약관</a></li>
+                        <li><a href="#">이메일 무단수집거부</a></li>
+                        <li><a href="#">법적고지</a></li>
+                        <li><a href="#">사업자정보확인</a></li>
+                    </ul>
+                </div>
+                <div class="footer_bottom_under">
+                    <p>대표이메일: skdnjs1109@gmail.com</p>
+                    <p>Copyright ⓒ NSP All Right Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+<script>
+    
+    // 기본이벤트 제거
+    window.addEventListener("wheel", function(e){
+        e.preventDefault();
+    },{passive : false});
+
+    var html = $("html");
+    var page = 1;
+    html.animate({scrollTop:0},10);
+    // 마우스 휠 이벤트
+    $(window).on("wheel", function(e){
+        if(html.is(":animated")) return;
+        if(e.originalEvent.deltaY > 0){
+            if(page==4) return;
+            page++;
+            // 초기화 
+            if(page==1 || page==4){
+                $("#all_con a").css({"color":"#fff"});
+                $("#all_con").css("height","0px");
+                search_img.src = "/img/search_white.png";
+                basket_img.src = "/img/basket_white.png";
+            }else{
+                $("#all_con a").css({"color":"#000"});
+                $("#all_con").css("height","0px");
+                search_img.src = "/img/search_black.png";
+                basket_img.src = "/img/basket_black.png";
+            }
+            // 위로가는 버튼 
+            if(page!=1){
+                $("#up_click").css("display", "block");
+            }else{
+                $("#up_click").css("display", "none");
+            }
+        }else if(e.originalEvent.deltaY < 0){
+            if(page == 1) return;
+            page--;
+            // 초기화 
+            if(page==1 || page==4){
+                $("#all_con a").css({"color":"#fff"});
+                $("#all_con").css("height","0px");
+                search_img.src = "/img/search_white.png";
+                basket_img.src = "/img/basket_white.png";
+            }else{
+                $("#all_con a").css({"color":"#000"});
+                $("#all_con").css("height","0px");
+                search_img.src = "/img/search_black.png";
+                basket_img.src = "/img/basket_black.png";
+            }
+            // 위로가는 버튼 
+            if(page!=1){
+                $("#up_click").css("display", "block");
+                
+            }else{
+                $("#up_click").css("display", "none");
+            }
+        }
+        var posTop = (page-1) * $(window).height();
+        // 화면이동 0.8s
+        html.stop().animate({
+            scrollTop : posTop},
+            {
+                duration:800, complete:function(){}
+            });
+        $("#up_click").click(function(){
+            var firstTop = -page * $(window).height();
+            page = 1;
+            html.stop().animate({scrollTop: firstTop},
+            {
+                duration:1100, complete:function(){}
+            });
+        });
+    });
+
+    var search_img = document.getElementById("search_img");
+    var basket_img = document.getElementById("basket_img");
+    var sub_menu = document.querySelectorAll("#sub_menu");
+    // 메뉴 영역 hover시 서브 메뉴 내려오게
+    $(function(){
+        for(var i=0; i<sub_menu.length; i++){
+            sub_menu[i].style.display = "none";
+        }
+        $("#all_con").hover(function(){
+            $(this).parent().find(sub_menu).slideDown(300);
+            if(page==1 || page==4){
+                $("#all_con a").css({"color":"#000"});
+                $("#all_con").css({"height":"300px", "background-color":"#fff"});
+                search_img.src = "/img/search_black.png";
+                basket_img.src = "/img/basket_black.png";
+            }else{
+                $("#all_con a").css({"color":"#000"});
+                $("#all_con").css({"height":"300px", "background-color":"#fff"});
+                search_img.src = "/img/search_black.png";
+                basket_img.src = "/img/basket_black.png";
+            }
+
+            $(this).hover(function(){
+            }, function(){
+                $(this).parent().find(sub_menu).slideUp(300);
+                if(page==1 || page==4){
+                    $("#all_con a").css({"color":"#fff"});
+                    $("#all_con").css("height","0px");
+                    search_img.src = "/img/search_white.png";
+                    basket_img.src = "/img/basket_white.png";
+                }else{
+                    $("#all_con a").css({"color":"#000"});
+                    $("#all_con").css("height","0px");
+                    search_img.src = "/img/search_black.png";
+                    basket_img.src = "/img/basket_black.png";
+                }
+                
+            });
+        });
+    });
+
+    var header = document.querySelector("header");
+    var count = 1;
+    // 비주얼 영역 버튼 클릭시 이미지 변경 
+    function slide(n){
+        console.log(n);
+        console.log(count);
+        if(count==1){
+            switch(n){
+                case 0:
+                    header.style.backgroundImage = "url('/img/visual3.jpg')";
+                    count=3;
+                    break;
+                case 1:
+                    header.style.backgroundImage = "url('/img/visual2.jpg')";
+                    count++;
+                    break;
+            }
+            $("#change_num").text((count).toString());
+        }else if(count==2){
+            switch(n){
+                case 0:
+                    header.style.backgroundImage = "url('/img/visual1.jpg')";
+                    count--;
+                    break;
+                case 1:
+                    header.style.backgroundImage = "url('/img/visual3.jpg')";
+                    count++;
+                    break;
+            }
+            $("#change_num").text((count).toString());
+        }else if(count==3){
+            switch(n){
+                case 0:
+                    header.style.backgroundImage = "url('/img/visual2.jpg')";
+                    count--;
+                    break;
+                case 1:
+                    header.style.backgroundImage = "url('/img/visual1.jpg')";
+                    count = 1;
+                    break;
+            }
+            $("#change_num").text((count).toString());
+        }
+        header.animate([
+            {opacity:0},
+            {opacity:1}
+        ],{
+            duration:1000,
+            iterations:1
+        });
+    }
+    
+</script>
+</html>
