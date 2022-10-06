@@ -1,0 +1,385 @@
+@charset "UTF-8";
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: 'GmarketSansLight';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+#up_click {
+    font-family: 'GmarketSansMedium';
+    background-color: rgba(0, 0, 0, 0.212);
+    border:none;
+    color:#fff;
+    font-size:30px;
+    padding:10px 20px;
+    z-index: 150;
+    position: fixed;
+    cursor: pointer;
+    right:10px;
+    bottom:20px;
+    display:none;
+}
+html{
+    width:100%;
+    height:100%;
+}
+body{
+    font-family: "GmarketSansLight";
+    width:100%;
+    height:100%;
+}
+header {
+    /* background-color:black; */
+    background-image:url("../img/visual1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width:100%;
+    height:100%;
+}
+a{text-decoration: none;}
+ul li {list-style: none;}
+/* 헤더 */
+#all_con{
+    width:100%;
+    transition:height ease 0.3s;
+    position:fixed;
+    top:0;
+    z-index: 1000;
+}
+#wrap {
+    width:80%;
+    margin: 0 auto;
+}
+nav {padding:20px 0px;}
+/* 이미지 슬라이드 넘기는 버튼 */
+#img_num {
+    background-color:rgba(0, 0, 0, 0.514);
+    position:absolute;
+    bottom:20px;
+    text-align: center;
+    border-radius: 30px;
+    width:150px;
+    right:45%;
+    padding:25px;
+}
+#img_num button {
+    cursor: pointer;
+    border:none;
+    background:none;
+    color:#fff;
+    font-size: 25px;
+}
+#prev_btn {float:left;}
+#prev_btn:hover {
+    transition:ease 0.5s;
+    color:rgb(163, 163, 163);
+}
+#next_btn {float:right;}
+#next_btn:hover {
+    transition:ease 0.5s;
+    color:rgb(163, 163, 163);
+}
+#num_count > span {
+    color:rgb(214, 214, 214);
+    font-family: 'GmarketSansMedium';
+}
+#num_count > #change_num {
+    color:#fff;
+    font-size: 13px;
+}
+#num_count > #all_num {font-size: 13px;}
+/* 메뉴 */
+/* 메뉴 왼쪽 */
+nav{
+    height:150px;
+    width:100%;
+}
+nav > #gnb_left{
+    display:flex;
+    float:left;
+}
+nav > #gnb_left > .logo {
+    margin-top: 8px;
+    font-size: 50px;
+}
+nav > #gnb_left > .logo > a{color:#fff;}
+nav > #gnb_left > #menu {
+    display: flex;
+    width:100%;
+    padding-left: 30px;
+}
+nav > #gnb_left > #menu > li {
+    padding:10px 0px;
+    width:200px;
+    text-align: start;
+}
+nav > #gnb_left > #menu li > a {color:#fff;}
+#sub_menu {
+    width:100%;
+    display:none;
+}
+#sub_menu li {padding:10px 0px;}
+/* 메뉴 오른쪽 */
+nav > #gnb_right {
+    display:flex;
+    float:right;
+}
+nav > #gnb_right > .util {
+    display:flex;
+    align-items: center;
+}
+nav > #gnb_right >.util li > a{color:#fff;}
+.util li {padding:0px 10px;}
+nav > #gnb_right > .util li > a > #search_img {
+    width:30px;
+    height:30px;
+}
+nav > #gnb_right > .util li > a > #basket_img {
+    width:30px;
+    height:30px;
+}
+/* best 영역 */
+#best_section {
+    padding-top:200px;
+    width:100%;
+    height:100%;
+}
+#best_img_con img{float:left;}
+#best_img_txt{float:right;}
+#best_img_txt > h1 {
+	font-family: 'GmarketSansMedium';
+    font-size:40px;
+    display:inline-block;
+    text-align: center;
+    vertical-align: middle;
+    border-bottom:2px solid #000;
+}
+#best_img_list1{
+	padding-top:50px;
+    text-align:center;
+}
+#best_img_list1 > li {
+	padding:55px 30px;
+}
+#best_img_list1 > li > a {
+	color:#000;
+	font-family: 'GmarketSansMedium';
+    font-size:30px;
+    transition:0.5s;
+}
+#best_img_list1 > li:hover a{
+	color:#aeaeae;
+}
+/* new 영역 */
+#new_section {
+    padding-top:200px;
+    width:100%;
+    height:100%;
+}
+#new_con{
+	width:100%;
+	height:100%;
+}
+#new_img_con{
+	width:100%;
+}
+#new_img_con img{float:right;}
+#new_img_txt{
+	float:left;
+	width:200px;	
+}
+#new_img_txt > h1 {
+	font-family: 'GmarketSansMedium';
+    font-size:40px;
+    display:inline-block;
+    text-align: center;
+    vertical-align: middle;
+    border-bottom:2px solid #000;
+}
+#new_img_list1{
+	padding-top:50px;
+    text-align:center;
+}
+#new_img_list1 > li {
+	padding:55px 30px;
+}
+#new_img_list1 > li > a {
+	color:#000;
+	font-family: 'GmarketSansMedium';
+    font-size:30px;
+    transition:0.5s;
+}
+#new_img_list1 > li:hover a{
+	color:#aeaeae;
+}
+/* footer 영역 */
+footer{
+	clear:both;
+    padding-top:200px;
+    background-color: #000;
+    width:100%;
+    height:100%;
+}
+footer a {color:#fff;}
+#footer_con{
+	width:100%;
+	height:100%;
+	padding:20px 0px;
+}
+#footer_top{
+    display:flex;
+    justify-content: center;
+    border-bottom:2px solid #fff;
+}
+#footer_top > ul > li {
+    padding:20px 0px;
+}
+#footer_top > ul li > a{ 
+    font-family: 'GmarketSansMedium';
+    font-size: 40px;
+}
+#footer_bottom{
+    padding-top: 20px;
+    display:flex;
+    flex-direction: column;
+}
+.footer_bottom_top > ul li {
+    display:inline-block;
+    padding-right: 10px;
+}
+.footer_bottom_top > ul > li > a{font-family: 'GmarketSansMedium';}
+.footer_bottom_under{
+	padding:10px 0px;
+}
+.footer_bottom_under p {
+    color:#fff;
+    font-size: 13px;
+}
+/* 로그인 영역*/
+#login {
+	margin-top:200px;
+	width:100%;
+	height:50%;
+}
+#login_wrap{
+	width:50%;
+	margin:0 auto;
+	display:flex;
+	justify-content: center;
+}
+#login_con{
+	width:50%;
+	
+}
+/* 로그인 top 텍스트*/
+#login_con > .login_txt > .login_title {
+	font-family: 'GmarketSansMedium';
+    font-size:35px;
+    border-bottom:2px solid #000;
+    display:inline-block;
+}
+#login_con > .login_txt {padding-bottom:10px;}
+/* 로그인 폼*/
+#login_form > .login_input_txt > input {
+	padding:10px 0px;
+	margin:5px 0px;
+	width:100%;
+}
+#login_form > .login_checkbox{padding:10px 0px;}
+#login_form > #login_btn {
+	background-color:#000;
+	color:#fff;
+	padding:10px 0px;
+	border:none;
+	width:100%;
+}
+/* 로그인 유틸 버튼*/
+#login_con > .login_util_btn {
+	padding-top:10px;
+}
+#login_con > .login_util_btn > ul li {
+	padding:5px 0px;
+}
+#login_con > .login_util_btn > ul li > a {
+	border-bottom:1px solid #000;
+	font-size:13px;
+}
+/* 회원가입 영역*/
+#register{
+	margin-top:200px;
+	width:100%;
+	height:70%;
+}
+#register_wrap{
+	width:60%;
+	margin:0 auto;
+}
+/* 회원가입 top 텍스트 */
+#register_con > .register_txt{
+	display:flex;
+	justify-content:center;
+	font-family: 'GmarketSansMedium';
+    font-size:25px;
+}
+#register_form {
+	padding-top:30px;
+}
+/* 회원가입 폼 안의 테이블 */
+#register_con > #register_form > #register_table {
+	border-top:3px solid #000;
+	border-collapse:collapse;
+	width:100%;
+}
+#register_table tr {
+	border-bottom:1px solid #e9e9e9;
+}
+#register_table tr td {
+	padding:10px 10px;
+}
+#register_table tr td:nth-child(1) {
+	border-right:1px solid #e9e9e9;
+	background-color:#fafafa;
+}
+#register_table tr td:nth-child(2){
+	padding-left:10px;
+}
+#register_table tr td > input {
+	padding:5px 0px;
+	width:60%;
+}
+/* 회원가입 폼 버튼들 */
+#register_form > #register_btn {
+	padding-top:30px;
+	display:flex;
+	justify-content:center;
+}
+#register_form > #register_btn input:nth-child(1) {
+	background-color:#fff;
+	color:#000;
+	border:1px solid #000;
+	margin-right:10px;
+	padding:5px 30px;
+	width:130px;
+	cursor:pointer;
+}
+#register_form > #register_btn input:nth-child(2){
+	background-color:#000;
+	color:#fff;
+	border:1px solid #000;
+	padding:5px 30px;
+	width:130px;
+	cursor:pointer;
+}
+
+
